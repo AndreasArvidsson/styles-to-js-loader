@@ -1,5 +1,5 @@
 # styles-to-js-loader
-Webpack loader to enables access to css styles from JavaScript
+Webpack loader to enables access to external styles from JavaScript
 
 ## Installation
 `npm install styles-to-js-loader --save`

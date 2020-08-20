@@ -1,7 +1,7 @@
 {
     "name": "styles-to-js-loader",
     "version": "1.0.0",
-    "description": "Webpack loader to enables access to css styles from JavaScript",
+    "description": "Webpack loader to enables access to external styles from JavaScript",
     "main": "src/index.js",
     "files": [
         "src/*"
@@ -11,7 +11,7 @@
         "buildProd": "webpack --config webpack.config.js --mode production --bundle dist",
         "buildDev": "webpack --config webpack.config.js --mode development --bundle dist",
         "build": "rm -rf dist/* & npm run buildProd && npm run buildDev",
-        "publishFlatten": "node node_modules/publish-flatten --flatten src --dry-run"
+        "pub": "node node_modules/publish-flatten --flatten src --strip scripts --strip devDependencies"
     },
     "keywords": [
         "webpack",
