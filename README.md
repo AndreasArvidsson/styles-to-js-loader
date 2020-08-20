@@ -44,7 +44,7 @@ class WC extends HTMLElement {
 ### styles.find function
 While `styles.get()` returns a style tag with all the styles for every imported style file the `styles.find()` function tries to find a single files content by its imported name. 
 ```js
-styles.get(name: string, callback: function) => <style>
+styles.find(name: string, callback: function) => <style>
 ```
 
 In the example below we fetch only the `owp.glyphicons` styles and then extract the font face to add to the header.
