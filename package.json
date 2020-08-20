@@ -1,0 +1,50 @@
+{
+    "name": "styles-to-js-loader",
+    "version": "1.0.0",
+    "description": "Webpack loader to enables access to css styles from JavaScript",
+    "main": "src/index.js",
+    "files": [
+        "src/*"
+    ],
+    "scripts": {
+        "start": "webpack-dev-server --config webpack.config.js --mode development --bundle test --port 9090 --open",
+        "buildProd": "webpack --config webpack.config.js --mode production --bundle dist",
+        "buildDev": "webpack --config webpack.config.js --mode development --bundle dist",
+        "build": "rm -rf dist/* & npm run buildProd && npm run buildDev",
+        "publishFlatten": "node node_modules/publish-flatten --flatten src --dry-run"
+    },
+    "keywords": [
+        "webpack",
+        "loader",
+        "css",
+        "styles",
+        "js",
+        "javascript"
+    ],
+    "author": "Andreas Arvidsson",
+    "license": "MIT",
+    "homepage": "https://github.com/AndreasArvidsson/styles-to-js-loader",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/AndreasArvidsson/styles-to-js-loader.git"
+    },
+    "bugs": {
+        "url": "https://github.com/AndreasArvidsson/styles-to-js-loader/issues"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "@babel/core": "latest",
+        "@babel/preset-env": "latest",
+        "babel-eslint": "latest",
+        "babel-loader": "latest",
+        "webpack": "latest",
+        "webpack-cli": "latest",
+        "webpack-dev-server": "latest",
+        "html-loader": "latest",
+        "html-webpack-plugin": "latest",
+        "css-loader": "latest",
+        "eslint-loader": "latest",
+        "eslint": "latest",
+        "publish-flatten": "latest"
+    }
+}
