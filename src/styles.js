@@ -1,13 +1,10 @@
 const field = "_jsStylesLoaderCustomStyles";
 
 if (!window[field]) {
-    window[field] = {
-        list: [],
-        map: {}
-    };
+    window[field] = [];
 }
 
-const obj = window[field];
+const list = window[field];
 
 export default {
 
@@ -19,24 +16,23 @@ export default {
             styles = styles.default;
         }
         for (let i = 0; i < styles.length; ++i) {
-            obj.list.push(styles[i][1])
-            obj.map[name] = styles[i][1];
+            const content = styles[i][1];
+            list.push({ name, content });
         }
     },
 
     get: function () {
         const style = document.createElement("style");
-        style.innerHTML = obj.list.join("\n");
+        style.innerHTML = list.map(s => s.content).join("\n");
         return style;
     },
 
     find: function (name, callback) {
-        for (let i in obj.map) {
-            if (i.indexOf(name) > -1) {
-                const style = document.createElement("style");
-                style.innerHTML = callback ? callback(obj.map[i]) : obj.map[i];
-                return style;
-            }
+        const f = list.find(s => s.name.includes(name));
+        if (f) {
+            const style = document.createElement("style");
+            style.innerHTML = callback ? callback(f.content) : f.content;
+            return style;
         }
         return null;
     }

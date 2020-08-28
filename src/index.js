@@ -1,10 +1,10 @@
 const path = require("path");
 const loaderUtils = require("loader-utils");
-const dirPaths = __dirname.split("/");
+const dirPaths = __dirname.split(path.sep);
 
-const loader = () => { };
+function loader() { }
 
-loader.pitch = request => {
+loader.pitch = function (request) {
     const styles = loaderUtils.stringifyRequest(
         this,
         `!${path.join(__dirname, "./styles.js")}`
@@ -15,7 +15,7 @@ loader.pitch = request => {
     );
     const name = getName(request);
     return `require(${styles}).default.add("${name}", require(${content}));`;
-};
+}
 
 module.exports = loader;
 
@@ -23,7 +23,7 @@ function getName(request) {
     //Remove loader info. After ! is the file path.
     request = request.substring(request.lastIndexOf("!") + 1);
     //Remove common parent dirs.
-    const paths = request.split("/");
+    const paths = request.split(path.sep);
     let i = 0;
     while (dirPaths[i] === paths[i]) {
         ++i;
