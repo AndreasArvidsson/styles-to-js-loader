@@ -7,15 +7,11 @@ Webpack loader to enables access to external styles from JavaScript
 ## Usage
 In webpack config use the loader for your css/style files.
 ```js
- {
-    rules: [
-        {
-            test: /\.css$/,
-            use: [
-                "styles-to-js-loader",
-                "css-loader"
-            ]
-        }
+{
+    test: /\.css$/,
+    use: [
+        "styles-to-js-loader",
+        "css-loader"
     ]
 }
 ```
