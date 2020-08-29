@@ -5,16 +5,16 @@ const dirPaths = __dirname.split(path.sep);
 function loader() { }
 
 loader.pitch = function (request) {
-    const styles = loaderUtils.stringifyRequest(
+    const addStyles = loaderUtils.stringifyRequest(
         this,
-        `!${path.join(__dirname, "./styles.js")}`
+        `!${path.join(__dirname, "./add-styles.js")}`
     );
     const content = loaderUtils.stringifyRequest(
         this,
         `!!${request}`
     );
     const name = getName(request);
-    return `require(${styles}).default.add("${name}", require(${content}));`;
+    return `require(${addStyles})("${name}", require(${content}));`;
 }
 
 module.exports = loader;

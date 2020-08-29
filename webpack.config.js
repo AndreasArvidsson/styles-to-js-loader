@@ -54,6 +54,7 @@ module.exports = (env, argv) => {
     if (argv.bundle === "dist") {
         res.entry = {
             "styles-to-js-loader": path.resolve(__dirname, "src/index.js"),
+            "add-styles": path.resolve(__dirname, "src/add-styles.js"),
             "styles": path.resolve(__dirname, "src/styles.js"),
         };
         res.output.filename = argv.mode === "production"
